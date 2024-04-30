@@ -3,7 +3,7 @@ Official code: https://github.com/xuebinqin/DIS.
 
 U2Net + ISNet GT encoder， training base on ssim loss, iou loss and bce loss. Using weighted binary cross-entropy (BCE) loss enhances the capability to  extract foreground pixels. 
 
-# Mutil loss
+## Mutil loss
 isnet.py
 ```
 ssim_loss = SSIM(window_size=11,size_average=True)
@@ -32,7 +32,7 @@ def muti_loss_fusion(preds, target):
             loss0 = loss
     return loss0, loss
 ```
-# Weighted BCE
+## Weighted BCE
 isnet.py
 ```
 def bce_loss_w(input, target):
@@ -42,7 +42,7 @@ def bce_loss_w(input, target):
     loss = nn.BCELoss(weight=weight, size_average=True)(input,target.float())
     return loss
 ```
-# Data preparation
+## Data preparation
 train_valid_inference_main.py
 ```
 dataset_tr = {"name": "",
@@ -60,21 +60,22 @@ dataset_vd = {"name": "",
              "cache_dir":"../dataset/2dteeth/data_cache/"
              }
 ```
-# train
+## train
 Download pre-train model isnet-general-use.pth from https://github.com/xuebinqin/DIS.
 ```
 python train_valid_inference_main.py
 ```
 
-# Experimented on tooth segmentation on panoramic X-ray images.
+## Experiment
+tooth segmentation on panoramic X-ray images
 
 
-# export onnx and test by onnxruntime
+## export onnx and test by onnxruntime
 ```
 python torch2onnx.py
 
 python demo_onnx.py
 ```
 
-# tensorrt and c++
+## tensorrt and c++
 https://github.com/xuanandsix/DIS-onnxruntime-and-tensorrt-demo
