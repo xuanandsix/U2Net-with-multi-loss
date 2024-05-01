@@ -60,7 +60,7 @@ dataset_vd = {"name": "",
              "cache_dir":"../dataset/2dteeth/data_cache/"
              }
 ```
-## train
+## Train
 Download pre-train model isnet-general-use.pth from https://github.com/xuebinqin/DIS.
 ```
 python train_valid_inference_main.py
@@ -69,13 +69,16 @@ python train_valid_inference_main.py
 ## Experiment
 tooth segmentation on panoramic X-ray images
 
+|||
+| :-: |:-:|
+|<img src="https://github.com/xuanandsix/U2Net-with-multi-loss/raw/main/imgs/tooth0.gif" height="100%" width="100%">|<img src="https://github.com/xuanandsix/U2Net-with-multi-loss/raw/main/imgs/tooth1.gif" height="100%" width="100%">|
 
-## export onnx and test by onnxruntime
+## Export onnx and test by onnxruntime
 ```
 python torch2onnx.py
 
 python demo_onnx.py
 ```
 
-## tensorrt and c++
+## Tensorrt and c++
 https://github.com/xuanandsix/DIS-onnxruntime-and-tensorrt-demo
